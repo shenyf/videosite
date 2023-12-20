@@ -27,10 +27,10 @@
         />
       </q-carousel-slide>
     </q-carousel>
-    <div class="q-pt-sm">
-      <div class="text-h5 q-pb-sm">人工智能</div>
+    <div class="q-pt-sm" v-for="(subject, sIndex) in subjects" :key="sIndex">
+      <div class="text-h5 q-pb-sm">{{ subject.name }}</div>
       <div class="row q-gutter-sm">
-        <q-card class="col-2" v-for="(item,key) in series" :key="key" style="height: 250px;">
+        <q-card class="col-2" v-for="(item,key) in subject.series" :key="key" style="height: 250px;cursor:pointer;" @click="this.$router.push({path: `/series/${item.id}`})">
           <q-card-section>
             <div class="text-h6">{{ item.title }}</div>
             <div class="text-subtitle1 text-green">{{item.watches}}人在看</div>
@@ -46,21 +46,14 @@
 
 <script setup>
 import {ref,onMounted} from "vue";
+import {listSubjects} from "src/api/homepage";
+
 const slide = ref('Rihanna');
-const series = ref([{
-  title: '入门篇',
-  watches: 123,
-  updatedAt: '2023-12-10',
-  description: '讲解了：AI 、机器学习、深度学习是怎么回事，他们之间的关系，常见的 AI 算法等知识。「人工智能入门」AI 是什么？',
-}, {
-  title: '进阶篇',
-  watches: 456,
-  updatedAt: '2023-12-10',
-  description: '讲解了：深度学习的概念，它是如何运作的？当有人问你这些概念的时候，你可以通熟易懂地讲解了。「人工智能入门」深度学习是如何工作的？',
-}, {
-  title: '高级篇',
-  watches: 789,
-  updatedAt: '2023-12-10',
-  description: 'AI 为什么这么重要，以至于大家都在谈论，对此寄予厚望；为什么 AI 的爆发正好在当下，明天的生活会因此发生什么改变。'
-}])
+const subjects = ref([])
+
+onMounted(()=>{
+  listSubjects().then((res)=>{
+    subjects.value = res.data
+  })
+})
 </script>

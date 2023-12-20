@@ -10,6 +10,7 @@ if (process.env.NODE_ENV !== 'production' || process.env.VUE_APP_PREVIEW === 'tr
   console.log('Mock mounting')
   const Mock = require('mockjs2')
   // require('./api/auth')
+  require('./api/homepage')
   require('./api/user')
   require('./api/system/user')
   require('./api/system/role')
