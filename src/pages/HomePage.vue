@@ -27,18 +27,31 @@
         />
       </q-carousel-slide>
     </q-carousel>
-    <div class="q-pt-sm" v-for="(subject, sIndex) in subjects" :key="sIndex">
-      <div class="text-h5 q-pb-sm">{{ subject.name }}</div>
+    <div class="q-pt-sm">
+<!--      <div class="text-h5 q-pb-sm">{{ course.name }}</div>-->
       <div class="row q-gutter-sm">
-        <q-card class="col-2" v-for="(item,key) in subject.series" :key="key" style="height: 250px;cursor:pointer;" @click="this.$router.push({path: `/series/${item.id}`})">
-          <q-card-section>
-            <div class="text-h6">{{ item.title }}</div>
-            <div class="text-subtitle1 text-green">{{item.watches}}人在看</div>
-          </q-card-section>
-          <q-card-section>
-            {{item.description}}
-          </q-card-section>
-        </q-card>
+        <div class="col-2" v-for="(cause,key) in courses" :key="key" style="height: 250px;cursor:pointer;" @click="this.$router.push({path: `/series/${item.id}`})">
+          <q-img
+            src="https://cdn.quasar.dev/img/parallax2.jpg"
+            spinner-color="white"
+            style="height: 170px; max-width: 300px"
+            img-class="my-custom-image"
+            class="rounded-borders"
+          >
+            <div class="q-pa-none absolute-bottom text-subtitle3 text-left" >
+              <q-icon name="mdi-youtube" class="q-pl-sm" size="sm"/>
+              <span class="q-pl-sm">1234</span>
+              <span class="q-pl-sm">全10课</span>
+            </div>
+          </q-img>
+          <div>
+            <div class="text-h6">{{ cause.name }}</div>
+            <div class="text-subtitle3">
+              <span class="float-left">人工智能 / 基础</span>
+              <span class="float-right">100人在看</span>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </q-page>
@@ -46,14 +59,14 @@
 
 <script setup>
 import {ref,onMounted} from "vue";
-import {listSubjects} from "src/api/homepage";
+import {listCourses} from "src/api/homepage";
 
 const slide = ref('Rihanna');
-const subjects = ref([])
+const courses = ref([])
 
 onMounted(()=>{
-  listSubjects().then((res)=>{
-    subjects.value = res.data
+  listCourses().then((res)=>{
+    courses.value = res.data
   })
 })
 </script>

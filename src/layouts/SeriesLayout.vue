@@ -14,7 +14,7 @@
         <q-btn flat no-caps no-wrap class="q-ml-xs" v-if="$q.screen.gt.xs">
           <q-icon :name="fabYoutube" color="red" size="28px" />
           <q-toolbar-title shrink class="text-weight-bold">
-
+            YouTube
           </q-toolbar-title>
         </q-btn>
 
@@ -84,20 +84,20 @@
 
           <q-separator class="q-mt-md q-mb-xs" />
 
-<!--          <q-item-label header class="text-weight-bold text-uppercase">-->
-<!--            More from Youtube-->
-<!--          </q-item-label>-->
+          <q-item-label header class="text-weight-bold text-uppercase">
+            More from Youtube
+          </q-item-label>
 
-<!--          <q-item v-for="link in links3" :key="link.text" v-ripple clickable>-->
-<!--            <q-item-section avatar>-->
-<!--              <q-icon color="grey" :name="link.icon" />-->
-<!--            </q-item-section>-->
-<!--            <q-item-section>-->
-<!--              <q-item-label>{{ link.text }}</q-item-label>-->
-<!--            </q-item-section>-->
-<!--          </q-item>-->
+          <q-item v-for="link in links3" :key="link.text" v-ripple clickable>
+            <q-item-section avatar>
+              <q-icon color="grey" :name="link.icon" />
+            </q-item-section>
+            <q-item-section>
+              <q-item-label>{{ link.text }}</q-item-label>
+            </q-item-section>
+          </q-item>
 
-<!--          <q-separator class="q-my-md" />-->
+          <q-separator class="q-my-md" />
 
           <q-item v-for="link in links4" :key="link.text" v-ripple clickable>
             <q-item-section avatar>
@@ -169,8 +169,8 @@ export default {
 
       links1: [
         { icon: 'home', text: 'Home' },
-        { icon: 'whatshot', text: '人工智能' },
-        { icon: 'subscriptions', text: '数学' }
+        { icon: 'whatshot', text: 'Trending' },
+        { icon: 'subscriptions', text: 'Subscriptions' }
       ],
       links2: [
         { icon: 'folder', text: 'Library' },

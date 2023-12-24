@@ -13,6 +13,18 @@ const routes = [{
       path: 'home', component: () => import('pages/HomePage.vue')
     }]
   }, {
+    path: '/subjects',
+    component: ()=> import('layouts/SubjectLayout.vue'),
+    children: [{
+      path: ':id', component: ()=>import('pages/subjects/IndexPage.vue')
+    }]
+  }, {
+    path: '/series',
+    component: ()=>import('layouts/SeriesLayout.vue'),
+    children: [{
+      path: ':id', component: ()=>import('pages/series/IndexPage.vue')
+    }]
+  }, {
     path: '/system',
     component: ()=> import("layouts/HomeLayout.vue"),
     redirect: '/system/users',

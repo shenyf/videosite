@@ -1,7 +1,7 @@
 import request from '@/utils/request'
-export function listSubjects(query) {
+export function listCourses(query) {
   return request({
-    url: `/homepage/subjects`,
+    url: `/homepage/courses`,
     data: query,
     method: 'post'
   })
