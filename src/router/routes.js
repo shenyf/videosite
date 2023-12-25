@@ -25,6 +25,12 @@ const routes = [{
       path: ':id', component: ()=>import('pages/series/IndexPage.vue')
     }]
   }, {
+    path: '/lessons',
+    component: ()=>import('layouts/LessonLayout.vue'),
+    children: [{
+      path: ':id', component: ()=>import('pages/lessons/IndexPage.vue')
+    }]
+  }, {
     path: '/system',
     component: ()=> import("layouts/HomeLayout.vue"),
     redirect: '/system/users',

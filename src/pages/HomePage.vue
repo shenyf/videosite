@@ -29,26 +29,25 @@
     </q-carousel>
     <div class="q-pt-sm">
 <!--      <div class="text-h5 q-pb-sm">{{ course.name }}</div>-->
-      <div class="row q-gutter-sm">
-        <div class="col-2" v-for="(cause,key) in courses" :key="key" style="height: 250px;cursor:pointer;" @click="this.$router.push({path: `/series/${item.id}`})">
+      <div class="row">
+        <div class="col-3" v-for="(lesson,key) in lessons" :key="key" style="height: 380px;cursor:pointer;" @click="this.$router.push({path: `/lessons/${lesson.id}`})">
           <q-img
             src="https://cdn.quasar.dev/img/parallax2.jpg"
             spinner-color="white"
-            style="height: 170px; max-width: 300px"
+            style="height: 300px; max-width: 400px"
             img-class="my-custom-image"
             class="rounded-borders"
           >
-            <div class="q-pa-none absolute-bottom text-subtitle3 text-left" >
+            <div class="q-pa-none absolute-bottom text-subtitle3 text-left">
               <q-icon name="mdi-youtube" class="q-pl-sm" size="sm"/>
-              <span class="q-pl-sm">1234</span>
-              <span class="q-pl-sm">全10课</span>
+              <span class="q-pl-sm">全{{ lesson.lessons }}课</span>
             </div>
           </q-img>
           <div>
-            <div class="text-h6">{{ cause.name }}</div>
-            <div class="text-subtitle3">
-              <span class="float-left">人工智能 / 基础</span>
-              <span class="float-right">100人在看</span>
+            <div class="text-h6">{{ lesson.name }}</div>
+            <div class="text-subtitle3 q-mr-md">
+              <span class="float-left">{{ lesson.subject.name }} / {{lesson.category.name}}</span>
+              <span class="float-right">{{ lesson.watchers }}人在看</span>
             </div>
           </div>
         </div>
@@ -59,14 +58,14 @@
 
 <script setup>
 import {ref,onMounted} from "vue";
-import {listCourses} from "src/api/homepage";
+import {listLessons} from "src/api/homepage";
 
 const slide = ref('Rihanna');
-const courses = ref([])
+const lessons = ref([])
 
 onMounted(()=>{
-  listCourses().then((res)=>{
-    courses.value = res.data
+  listLessons().then((res)=>{
+    lessons.value = res.data
   })
 })
 </script>
