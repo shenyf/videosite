@@ -16,12 +16,12 @@
 <!--          <q-item-label caption>2 new messages</q-item-label>-->
         </q-item-section>
         <q-item-section>
-          <q-item-label>
-            <q-icon name="mdi-youtube" size="sm"/>
+          <q-item-label class="text-grey-7">
+            <q-icon name="mdi-youtube" size="md" />
             <span class="q-pl-sm">123</span>
-            <q-icon name="mdi-thumb-up" size="sm" class="q-pl-md"/>
+            <q-icon name="mdi-thumb-up" size="md" class="q-pl-md "/>
             <span class="q-pl-sm">99</span>
-            <q-icon name="mdi-heart" size="sm" class="q-pl-md"/>
+            <q-icon name="mdi-heart" size="md" class="q-pl-md"/>
             <span class="q-pl-sm">120</span>
           </q-item-label>
         </q-item-section>
